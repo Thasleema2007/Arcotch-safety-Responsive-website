@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Quote</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+}
+
+/* Request Button */
+#openFormBtn {
+    margin-top: 50px;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#openFormBtn:hover {
+    background-color: #e65c00;
+}
+
+/* Popup Background */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Popup Content */
+.popup-content {
+    background-color: #1a3d66;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+    text-align: left;
+}
+
+.popup-content h2 {
+    color: #fff;
+    text-align: center;
+}
+
+.popup-content .logo {
+    display: block;
+    margin: 0 auto 10px;
+    width: 50px;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Form Styles */
+form input, form select, form textarea, form button {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+form input, form select, form textarea {
+    background-color: #e0e0e0;
+}
+
+form button {
+    background-color: #ff6600;
+    color: #fff;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #e65c00;
+}
+
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3498db;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.chat-button .chat-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Chat Popup */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header .chat-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-body {
+    padding: 10px;
+    text-align: center;
+}
+
+.chat-loading {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ccc;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+</style>
+
+<body>
+<!-- Request a Quote Button 
+<button id="openFormBtn">Request a Quote</button>-->
+
+<!-- Popup Form 
+<div id="quoteFormPopup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="closeFormBtn">&times;</span>
+        <img src="logo.png" alt="Arcotech Fire Safety Logo" class="logo">
+        <h2>REQUEST A QUOTE</h2>
+        <form id="quoteForm">
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Address" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone" required>
+            <select required>
+                <option value="" disabled selected>SERVICES</option>
+                <option value="Installation">Installation</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Inspection">Inspection</option>
+            </select>
+            <textarea placeholder="Type your message here..." rows="4"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="chat-button" onclick="toggleChat()">
+    <img src="chat-icon.png" alt="Chat Icon" class="chat-icon">
+</div>
+
+<div class="chat-popup" id="chatPopup">
+    <div class="chat-header">
+        <img src="assets/images/FIRE.png" alt="Arcotech Safety Logo" class="chat-logo">
+        <span>Arcotech Safety</span>
+        <button class="close-btn" onclick="toggleChat()">×</button>
+    </div>
+    <div class="chat-body">
+        <p>We'll reply as soon as we can</p>
+        <div class="chat-loading"></div>
+    </div>
+</div>-->
+
+<div class="testimonial-container">
+    <div class="testimonial-slider">
+        <div class="testimonial">
+            <p>"Great service and support!"</p>
+            <h4>- John Doe</h4>
+        </div>
+        <div class="testimonial">
+            <p>"Highly recommend their products!"</p>
+            <h4>- Jane Smith</h4>
+        </div>
+        <div class="testimonial">
+            <p>"Fantastic experience!"</p>
+            <h4>- Michael Brown</h4>
+        </div>
+    </div>
+
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
