@@ -38,33 +38,25 @@
 	triggerBttn.addEventListener( 'click', toggleOverlay );
 	closeBttn.addEventListener( 'click', toggleOverlay );
 })();
-function subscribe() {
-	const email = document.getElementById('emailInput').value;
-	const message = document.getElementById('message');
-
-	if (email) {
-		// Redirect to mailto link to open default email client
-		window.location.href =' mailto:info@arcotechsafety.com?subject=Subscription Request&body=Please add ${email} to the mailing list.';
-
-		// Show a success message
-		message.innerHTML = "Subscription request sent! Check your email.";
-		message.style.color = "green";
-	} else {
-		// Show an error message if the input is empty
-		message.innerHTML = "Please enter a valid email.";
-		message.style.color = "red";
-	}
-}
 document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevents default form submission
-
+    event.preventDefault(); // Prevent form submission
+    
     const name = document.getElementById('name').value;
-	const phone = document.getElementById('phone').value;
+    const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
 
-    const mailtoLink =' mailto:info@arcotechsafety.com?subject=${encodeURIComponent(subject)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0A${encodeURIComponent(message)}';
+    if (!email) {
+        alert("Please enter a valid email.");
+        return;
+    }
+
+    const mailtoLink = `mailto:info@arcotechsafety.com?subject=${encodeURIComponent(subject)}&body=
+        Name: ${encodeURIComponent(name)}
+        Phone: ${encodeURIComponent(phone)}
+        Email: ${encodeURIComponent(email)}
+        Message: ${encodeURIComponent(message)}`;
 
     window.location.href = mailtoLink;
 });
