@@ -60,4 +60,17 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
     window.location.href = mailtoLink;
 });
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from redirecting
+    fetch(this.action, {
+        method: this.method,
+        body: new FormData(this),
+    }).then(response => {
+        if (response.ok) {
+            document.getElementById("contact-form").style.display = "none"; // Hide form
+            document.getElementById("thank-you-message").style.display = "block"; // Show message
+        }
+    }).catch(error => console.error('Error:', error));
+});
+
 
